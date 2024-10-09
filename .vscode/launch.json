@@ -1,0 +1,185 @@
+{
+  "configurations": [
+    {
+      "name": "ST-Link: Debug All",
+      "cwd": "${workspaceFolder}",
+      "type": "cortex-debug",
+      // "liveWatch": {
+      //   "enabled": true,
+      //   "samplesPerSecond": 4
+      // },
+      // "executable": {"./app/build/app.elf", "./bootloader/build/bootloader.elf"},
+      "request": "launch",
+      "servertype": "stlink",
+      "device": "STM32F411CEUx", //MCU used
+      "interface": "swd",
+      "serialNumber": "", //Set ST-Link ID if you use multiple at the same time
+      "runToEntryPoint": "main",
+      "svdFile": "${config:STM32VSCodeExtension.cubeCLT.path}/STMicroelectronics_CMSIS_SVD/STM32F411.svd",
+      "v1": false, //Change it depending on ST Link version
+      "serverpath": "${config:STM32VSCodeExtension.cubeCLT.path}/STLink-gdb-server/bin/ST-LINK_gdbserver",
+      "stm32cubeprogrammer": "${config:STM32VSCodeExtension.cubeCLT.path}/STM32CubeProgrammer/bin",
+      "stlinkPath": "${config:STM32VSCodeExtension.cubeCLT.path}/STLink-gdb-server/bin/ST-LINK_gdbserver",
+      "armToolchainPath": "${config:STM32VSCodeExtension.cubeCLT.path}/GNU-tools-for-STM32/bin",
+      "gdbPath": "${config:STM32VSCodeExtension.cubeCLT.path}/GNU-tools-for-STM32/bin/arm-none-eabi-gdb",
+      "serverArgs": [
+        "-m",
+        "0",
+      ],
+      "loadFiles": [
+        "./app/build/app.elf",
+        "./bootloader/build/bootloader.elf"
+      ],
+      "symbolFiles": [
+        "./app/build/app.elf",
+        "./bootloader/build/bootloader.elf"
+      ],
+      "preLaunchTask": "build_all"
+    },
+    {
+      "name": "ST-Link: Debug Application",
+      "cwd": "${workspaceFolder}/app",
+      "type": "cortex-debug",
+      "executable": "./build/app.elf",
+      "request": "launch",
+      "servertype": "stlink",
+      "device": "STM32F411CEUx", //MCU used
+      "interface": "swd",
+      "serialNumber": "", //Set ST-Link ID if you use multiple at the same time
+      "runToEntryPoint": "main",
+      "svdFile": "${config:STM32VSCodeExtension.cubeCLT.path}/STMicroelectronics_CMSIS_SVD/STM32F411.svd",
+      "v1": false, //Change it depending on ST Link version
+      "serverpath": "${config:STM32VSCodeExtension.cubeCLT.path}/STLink-gdb-server/bin/ST-LINK_gdbserver",
+      "stm32cubeprogrammer": "${config:STM32VSCodeExtension.cubeCLT.path}/STM32CubeProgrammer/bin",
+      "stlinkPath": "${config:STM32VSCodeExtension.cubeCLT.path}/STLink-gdb-server/bin/ST-LINK_gdbserver",
+      "armToolchainPath": "${config:STM32VSCodeExtension.cubeCLT.path}/GNU-tools-for-STM32/bin",
+      "gdbPath": "${config:STM32VSCodeExtension.cubeCLT.path}/GNU-tools-for-STM32/bin/arm-none-eabi-gdb",
+      "serverArgs": [
+        "-m",
+        "0",
+      ],
+      "preLaunchTask": "build_app"
+    },
+    {
+      "name": "ST-Link: Debug Bootloader",
+      "cwd": "${workspaceFolder}/bootloader",
+      "type": "cortex-debug",
+      "executable": "./build/bootloader.elf",
+      "request": "launch",
+      "servertype": "stlink",
+      "device": "STM32F411CEUx", //MCU used
+      "interface": "swd",
+      "serialNumber": "", //Set ST-Link ID if you use multiple at the same time
+      "runToEntryPoint": "main",
+      "svdFile": "${config:STM32VSCodeExtension.cubeCLT.path}/STMicroelectronics_CMSIS_SVD/STM32F411.svd",
+      "v1": false, //Change it depending on ST Link version
+      "serverpath": "${config:STM32VSCodeExtension.cubeCLT.path}/STLink-gdb-server/bin/ST-LINK_gdbserver",
+      "stm32cubeprogrammer": "${config:STM32VSCodeExtension.cubeCLT.path}/STM32CubeProgrammer/bin",
+      "stlinkPath": "${config:STM32VSCodeExtension.cubeCLT.path}/STLink-gdb-server/bin/ST-LINK_gdbserver",
+      "armToolchainPath": "${config:STM32VSCodeExtension.cubeCLT.path}/GNU-tools-for-STM32/bin",
+      "gdbPath": "${config:STM32VSCodeExtension.cubeCLT.path}/GNU-tools-for-STM32/bin/arm-none-eabi-gdb",
+      "serverArgs": [
+        "-m",
+        "0",
+      ],
+      "preLaunchTask": "build_bootloader"
+    },
+    {
+      "name": "ST-Link: Attach to Application",
+      "cwd": "${workspaceFolder}/app",
+      "type": "cortex-debug",
+      "executable": "./build/app.elf",
+      "request": "attach",
+      "servertype": "stlink",
+      "device": "STM32F411CEUx", //MCU used
+      "interface": "swd",
+      "serialNumber": "", //Set ST-Link ID if you use multiple at the same time
+      "runToEntryPoint": "main",
+      "svdFile": "${config:STM32VSCodeExtension.cubeCLT.path}/STMicroelectronics_CMSIS_SVD/STM32F411.svd",
+      "v1": false, //Change it depending on ST Link version
+      "serverpath": "${config:STM32VSCodeExtension.cubeCLT.path}/STLink-gdb-server/bin/ST-LINK_gdbserver",
+      "stm32cubeprogrammer": "${config:STM32VSCodeExtension.cubeCLT.path}/STM32CubeProgrammer/bin",
+      "stlinkPath": "${config:STM32VSCodeExtension.cubeCLT.path}/STLink-gdb-server/bin/ST-LINK_gdbserver",
+      "armToolchainPath": "${config:STM32VSCodeExtension.cubeCLT.path}/GNU-tools-for-STM32/bin",
+      "gdbPath": "${config:STM32VSCodeExtension.cubeCLT.path}/GNU-tools-for-STM32/bin/arm-none-eabi-gdb",
+      "serverArgs": [
+        "-m",
+        "0",
+      ],
+    },
+    {
+      "name": "ST-Link: Attach to Bootloader",
+      "cwd": "${workspaceFolder}/bootloader",
+      "type": "cortex-debug",
+      "executable": "./build/bootloader.elf",
+      "request": "attach",
+      "servertype": "stlink",
+      "device": "STM32F411CEUx", //MCU used
+      "interface": "swd",
+      "serialNumber": "", //Set ST-Link ID if you use multiple at the same time
+      "runToEntryPoint": "main",
+      "svdFile": "${config:STM32VSCodeExtension.cubeCLT.path}/STMicroelectronics_CMSIS_SVD/STM32F411.svd",
+      "v1": false, //Change it depending on ST Link version
+      "serverpath": "${config:STM32VSCodeExtension.cubeCLT.path}/STLink-gdb-server/bin/ST-LINK_gdbserver",
+      "stm32cubeprogrammer": "${config:STM32VSCodeExtension.cubeCLT.path}/STM32CubeProgrammer/bin",
+      "stlinkPath": "${config:STM32VSCodeExtension.cubeCLT.path}/STLink-gdb-server/bin/ST-LINK_gdbserver",
+      "armToolchainPath": "${config:STM32VSCodeExtension.cubeCLT.path}/GNU-tools-for-STM32/bin",
+      "gdbPath": "${config:STM32VSCodeExtension.cubeCLT.path}/GNU-tools-for-STM32/bin/arm-none-eabi-gdb",
+      "serverArgs": [
+        "-m",
+        "0",
+      ],
+    },
+    {
+      "name": "JLink: Debug Application",
+      "cwd": "${workspaceFolder}/app",
+      "executable": "./build/app.elf",
+      "serverpath": "/usr/bin/JLinkGDBServer",
+      "servertype": "jlink",
+      "request": "launch",
+      "type": "cortex-debug",
+      "device": "STM32F401RE",
+      "runToEntryPoint": "main",
+      "interface": "swd",
+      "preLaunchTask": "build_app"
+    },
+    {
+      "name": "JLink: Debug Bootloader",
+      "cwd": "${workspaceFolder}/bootloader",
+      "executable": "./build/bootloader.elf",
+      "serverpath": "/usr/bin/JLinkGDBServer",
+      "servertype": "jlink",
+      "request": "launch",
+      "type": "cortex-debug",
+      "device": "STM32F401RE",
+      "runToEntryPoint": "main",
+      "interface": "swd",
+      "preLaunchTask": "build_bootloader"
+    },
+    {
+      "name": "JLink: Attach to Application",
+      "cwd": "${workspaceFolder}/app",
+      "executable": "./build/app.elf",
+      "serverpath": "/usr/bin/JLinkGDBServer",
+      "servertype": "jlink",
+      "request": "attach",
+      "type": "cortex-debug",
+      "device": "STM32F401RE",
+      "runToEntryPoint": "main",
+      "interface": "swd"
+    },
+    {
+      "name": "JLink: Attach to Bootloader",
+      "cwd": "${workspaceFolder}/bootloader",
+      "executable": "./build/bootloader.elf",
+      "serverpath": "/usr/bin/JLinkGDBServer",
+      "servertype": "jlink",
+      "request": "attach",
+      "type": "cortex-debug",
+      "device": "STM32F401RE",
+      "runToEntryPoint": "main",
+      "interface": "swd",
+      "preLaunchTask": "build_bootloader"
+    }
+  ]
+}
